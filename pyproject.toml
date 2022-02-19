@@ -1,14 +1,14 @@
 [tool.poetry]
 name = "plugin_manager"
 version = "1.0.0"
-description = ""
+description = "Plugin object oriented ext "
 authors = ["LEv145"]
 
 
 [tool.poetry.dependencies]
 python = ">=3.8.0,<3.11"
 hikari-lightbulb = "^2.2.0"
-hikari = "^2.0.0-alpha.106"
+hikari = "*"
 
 [tool.poetry.dev-dependencies]
 
