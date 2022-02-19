@@ -1,6 +1,13 @@
 # lightbulb.ext.plugin_manager  (Plugin object oriented ext)
 
 
+## Install
+
+```
+pip install git+https://github.com/LEv145/lightbulb_plugin_manager.git
+```
+
+
 ## How to use
 ```
 ... \
@@ -65,6 +72,7 @@ if __name__ == "__main__":
 ```
 And now we provide complete independence of the client from the component!
 
+
 ## What are the advantages? OwO
 
 * We have completely independent entities
@@ -79,6 +87,7 @@ class MyPluginManager(MyFriendPluginManager):
 ```
 * The ability to make abstraction over components
 * And More!
+
 
 ## Links
 * https://martinfowler.com/articles/injection.html
