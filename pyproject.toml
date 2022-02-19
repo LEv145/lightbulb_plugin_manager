@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "plugin_manager"
-version = "1.0.0"
+version = "1.0.1"
 description = "Plugin object oriented ext "
 authors = ["LEv145"]
 
