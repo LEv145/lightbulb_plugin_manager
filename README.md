@@ -14,6 +14,7 @@
 import lightbulb
 from plugin_manager import PluginManager
 
+
 @dataclass
 class MusicPluginDataStore(lightbulb.utils.DataStore):
     music_client: ABCMusicClient
