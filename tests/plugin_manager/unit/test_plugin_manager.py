@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 import lightbulb
 
-from src.lightbulb.ext.plugin_manager.plugin_manager import PluginManager
+from src.plugin_manager.plugin_manager import PluginManager
 
 
 class TestPluginManager(unittest.IsolatedAsyncioTestCase):

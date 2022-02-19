@@ -11,7 +11,7 @@
 `misc_component.py:`
 ```py
 import lightbulb
-from lightbulb.ext.plugin_manager import PluginManager
+from plugin_manager import PluginManager
 
 @dataclass
 class MusicPluginDataStore(lightbulb.utils.DataStore):

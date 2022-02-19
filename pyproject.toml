@@ -1,8 +1,9 @@
 [tool.poetry]
-name = "lightbulb_plugin_manager"
-version = "0.1.0"
+name = "plugin_manager"
+version = "1.0.0"
 description = ""
 authors = ["LEv145"]
+
 
 [tool.poetry.dependencies]
 python = ">=3.8.0,<3.11"
