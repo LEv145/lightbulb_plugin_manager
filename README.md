@@ -1,4 +1,4 @@
-# lightbulb.ext.plugin_manager  (Plugin object oriented ext)
+# Lightbulb plugin manager  (Plugin object oriented ext)
 
 
 ## Install
