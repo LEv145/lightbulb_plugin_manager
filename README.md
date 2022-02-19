@@ -1,5 +1,6 @@
 # lightbulb.ext.plugin_manager  (Plugin object oriented ext)
 
+
 ## How to use
 ```
 ... \
@@ -38,6 +39,7 @@ class MusicPluginManager(PluginManager):
         
         plugin.music_client.play(...)
 ```
+
 `__main__.py:`
 ```py
 from components.music_component import MusicPluginManager, MusicPluginDataStore
@@ -45,14 +47,15 @@ from components.music_component import MusicPluginManager, MusicPluginDataStore
 
 def main() -> None:
     ...
-     bot.add_plugin(
+    bot.add_plugin(
         MiscPluginManager(
             "Music", 
             "Music commands!", 
             data_store=MusicPluginDataStore(
                 music_client=LavalinkClient(),
-            ),
-    ).get_plugin())
+            ),  # Dependency Injection
+        ).get_plugin(),
+    )
     ...
 
 
@@ -62,6 +65,7 @@ if __name__ == "__main__":
 And now we provide complete independence of the client from the component!
 
 ## What are the advantages? OwO
+
 * We have completely independent entities
 * Inheritance
 Gives you the opportunity to inherit from the component and make the command in your own way!
