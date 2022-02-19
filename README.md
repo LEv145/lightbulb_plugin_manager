@@ -75,9 +75,10 @@ And now we provide complete independence of the client from the component!
 
 ## What are the advantages? OwO
 
+* Pure dependency injection
+* The data is linked to a single object*
 * We have completely independent entities
 * Inheritance
-Gives you the opportunity to inherit from the component and make the command in your own way!
 ```py
 class MyPluginManager(MyFriendPluginManager):
     @staticmethod
@@ -86,7 +87,6 @@ class MyPluginManager(MyFriendPluginManager):
     def stop_command(self, ...): ...
 ```
 * The ability to make abstraction over components
-* And More!
 
 
 ## Links
