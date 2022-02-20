@@ -19,7 +19,8 @@ pip install git+https://github.com/LEv145/lightbulb_plugin_manager.git
 `misc_component.py:`
 ```py
 import lightbulb
-from plugin_manager import PluginManager
+from plugin_manager import PluginManager, pass_plugin
+
 
 
 @dataclass
@@ -41,10 +42,8 @@ class MusicPluginManager(PluginManager):
     @staticmethod
     @lightbulb.command(name="play", description="Play music!")
     @lightbulb.implements(lightbulb.SlashCommand)
-    async def play_command(ctx: lightbulb.Context) -> None:
-        assert ctx.command is not None
-        plugin: PluginType = ctx.command.plugin  # type: ignore
-        
+    @pass_plugin
+    async def play_command(plugin: PluginType, ctx: lightbulb.Context) -> None:
         plugin.music_client.play(...)
 ```
 
@@ -84,7 +83,7 @@ class MyPluginManager(MyFriendPluginManager):
     @staticmethod
     @lightbulb.command(name="stop", description="Stop music")
     @lightbulb.implements(lightbulb.SlashCommand)
-    def stop_command(self, ...): ...
+    def stop_command(...): ...
 ```
 * The ability to make abstraction over components
 
