@@ -73,7 +73,7 @@ class MyPluginManager(MyFriendPluginManager):
     @staticmethod
     @lightbulb.command(name="stop", description="Stop music")
     @lightbulb.implements(lightbulb.SlashCommand)
-    def stop_command(self, ...): ...
+    def stop_command(...): ...
 ```
 * The ability to make abstraction over components
 * And More!
