@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "plugin_manager"
-version = "1.0.1"
+version = "1.0.2"
 description = "Plugin object oriented ext "
 authors = ["LEv145"]
 
@@ -9,8 +9,10 @@ authors = ["LEv145"]
 python = ">=3.8.0,<3.11"
 hikari-lightbulb = "^2.2.0"
 hikari = "*"
+mypy-extensions = "^0.4.3"
 
 [tool.poetry.dev-dependencies]
+mypy = "^0.931"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
