@@ -12,7 +12,8 @@
 `misc_component.py:`
 ```py
 import lightbulb
-from plugin_manager import PluginManager
+from plugin_manager import PluginManager, pass_plugin
+
 
 @dataclass
 class MusicPluginDataStore(lightbulb.utils.DataStore):
@@ -33,10 +34,8 @@ class MusicPluginManager(PluginManager):
     @staticmethod
     @lightbulb.command(name="play", description="Play music!")
     @lightbulb.implements(lightbulb.SlashCommand)
-    async def play_command(ctx: lightbulb.Context) -> None:
-        assert ctx.command is not None
-        plugin: PluginType = ctx.command.plugin  # type: ignore
-        
+    @pass_plugin
+    async def play_command(plugin: PluginType, ctx: lightbulb.Context) -> None:
         plugin.music_client.play(...)
 ```
 
