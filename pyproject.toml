@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "plugin_manager"
-version = "1.0.2"
+name = "lightbulb_plugin_manager"
+version = "1.0.3"
 description = "Plugin object oriented ext "
 authors = ["LEv145"]
 

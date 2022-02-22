@@ -1,4 +1,4 @@
-# lightbulb.ext.plugin_manager  (Plugin object oriented ext)
+# Lightbulb plugin manager  (Plugin object-oriented ext)
 
 
 ## How to use
@@ -12,7 +12,7 @@
 `misc_component.py:`
 ```py
 import lightbulb
-from plugin_manager import PluginManager, pass_plugin
+from lightbulb_plugin_manager import PluginManager, pass_plugin
 
 
 @dataclass
@@ -37,6 +37,7 @@ class MusicPluginManager(PluginManager):
     @pass_plugin
     async def play_command(plugin: PluginType, ctx: lightbulb.Context) -> None:
         plugin.music_client.play(...)
+        await ctx.respond("Playing")
 ```
 
 `__main__.py:`
@@ -51,7 +52,7 @@ def main() -> None:
             "Music", 
             "Music commands!", 
             data_store=MusicPluginDataStore(
-                music_client=LavalinkClient(),
+                music_client=LavalinkClient(...),
             ),  # Dependency Injection
         ).get_plugin(),
     )
