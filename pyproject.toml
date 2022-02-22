@@ -1,18 +1,26 @@
 [tool.poetry]
-name = "plugin_manager"
-version = "1.0.0"
-description = ""
+name = "lightbulb_plugin_manager"
+version = "1.0.3"
+description = "Plugin object oriented ext "
 authors = ["LEv145"]
 
 
 [tool.poetry.dependencies]
 python = ">=3.8.0,<3.11"
 hikari-lightbulb = "^2.2.0"
-hikari = "^2.0.0-alpha.106"
+hikari = "*"
+mypy-extensions = "^0.4.3"
 
 [tool.poetry.dev-dependencies]
+mypy = "^0.931"
+mkinit = "^0.3.4"
+poethepoet = "^0.12.3"
+black = "^22.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+
+[tool.poe.tasks]
+mkinit = "mkinit --black --nomods --relative -w"

@@ -1,4 +1,4 @@
-# lightbulb.ext.plugin_manager  (Plugin object oriented ext)
+# Lightbulb plugin manager  (Plugin object-oriented ext)
 
 
 ## How to use
@@ -12,7 +12,8 @@
 `misc_component.py:`
 ```py
 import lightbulb
-from plugin_manager import PluginManager
+from lightbulb_plugin_manager import PluginManager, pass_plugin
+
 
 @dataclass
 class MusicPluginDataStore(lightbulb.utils.DataStore):
@@ -33,11 +34,10 @@ class MusicPluginManager(PluginManager):
     @staticmethod
     @lightbulb.command(name="play", description="Play music!")
     @lightbulb.implements(lightbulb.SlashCommand)
-    async def play_command(ctx: lightbulb.Context) -> None:
-        assert ctx.command is not None
-        plugin: PluginType = ctx.command.plugin  # type: ignore
-        
+    @pass_plugin
+    async def play_command(plugin: PluginType, ctx: lightbulb.Context) -> None:
         plugin.music_client.play(...)
+        await ctx.respond("Playing")
 ```
 
 `__main__.py:`
@@ -52,7 +52,7 @@ def main() -> None:
             "Music", 
             "Music commands!", 
             data_store=MusicPluginDataStore(
-                music_client=LavalinkClient(),
+                music_client=LavalinkClient(...),
             ),  # Dependency Injection
         ).get_plugin(),
     )
@@ -74,7 +74,7 @@ class MyPluginManager(MyFriendPluginManager):
     @staticmethod
     @lightbulb.command(name="stop", description="Stop music")
     @lightbulb.implements(lightbulb.SlashCommand)
-    def stop_command(self, ...): ...
+    def stop_command(...): ...
 ```
 * The ability to make abstraction over components
 * And More!
