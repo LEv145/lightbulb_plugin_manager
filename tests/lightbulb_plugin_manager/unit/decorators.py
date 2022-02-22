@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import AsyncMock, MagicMock
 
 
-from src.plugin_manager.decorators import (
+from src.lightbulb_plugin_manager.decorators import (
     pass_plugin,
 )
 
