@@ -4,15 +4,20 @@ from typing import (
     Callable,
     Awaitable,
     Any,
+    TypeVar,
 )
 from mypy_extensions import Arg, VarArg, KwArg
 
 import lightbulb
 
 
-def pass_plugin(
-    function: Callable[[Arg(lightbulb.Context), VarArg(), KwArg()], Awaitable[None]],
-) -> Callable[[lightbulb.Context], Awaitable[None]]:
+PluginFunctionType = TypeVar(
+    "PluginFunctionType",
+    bound=Callable[[Arg(lightbulb.Context), VarArg(), KwArg()], Awaitable[None]],
+)
+
+
+def pass_plugin(function: PluginFunctionType) -> PluginFunctionType:
     async def decorated(ctx: lightbulb.Context, *args: Any, **kwargs: Any) -> None:
         if ctx.command is None:
             raise RuntimeError("The command was not found with context")
